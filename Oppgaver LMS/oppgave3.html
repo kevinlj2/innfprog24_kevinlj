@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1.0">
+        <title>OPPGAVE3</title>
+    </head>
+    <body>
+        <p id="average"></p>
+
+
+        <script>
+            const father_born = 1987
+            // Lagt inn fødselsåret til far
+            
+            const mother_born = 1992
+            // Lagt inn fødselsåret til mor
+          
+            const daughter_born = 2017
+            // Lagt inn fødselsåret til datter
+
+            const son_born = 2022
+            // Lagt inn fødselsåret til sønn
+
+            const father = 2024 - father_born
+            const mother = 2024 - mother_born
+            const daughter = 2024 - daughter_born
+            const son = 2024 - son_born
+
+            const utskrift = (father + mother + daughter + son) / 4
+            document.getElementById("average").innerHTML = utskrift;
+
+        </script>
+    </body>
+</html>
