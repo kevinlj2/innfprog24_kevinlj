@@ -22,10 +22,11 @@
             const son_born = 2022
             // Lagt inn fødselsåret til sønn
 
-            const father = 2024 - father_born
-            const mother = 2024 - mother_born
-            const daughter = 2024 - daughter_born
-            const son = 2024 - son_born
+            const father = year - father_born
+            const mother = year - mother_born
+            const daughter = year - daughter_born
+            const son = year - son_born
+            const year = 2024
 
             const utskrift = (father + mother + daughter + son) / 4
             document.getElementById("average").innerHTML = utskrift;

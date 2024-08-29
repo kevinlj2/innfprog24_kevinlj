@@ -11,13 +11,14 @@
         <script>
             const firstname = "Kevin"
             // Lagt inn firstname
-            const email = "mailto:kevinlj@hiof.no"
+            const email = ":kevinlj@hiof.no"
             // Lagt inn email
 
-            const emaillink =  <a href="mailto:kevinlj@hiof.no">Send mail til Kevin</a>
+            const emaillink = `<a href="mailto:${email}">Send mail til ${firstname}</a>`
+            // Lagt inn href til email
 
             document.getElementById("maillink").innerHTML = emaillink
-
+            // Lagt inn temlit for mailen
         </script>
     </body>
 </html>
