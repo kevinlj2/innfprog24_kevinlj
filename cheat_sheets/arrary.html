@@ -20,18 +20,26 @@
     <script>
         //Opprettet en array med filmtitler
         const moviearray = ["Interstellar", "Top Gun", "Titanic", "Dum og dummere", "Cool runnings", "Pokemon", 
-        "Ikke krøll med Zohan"]
+        "Ikke krøll med Zohan", "Life of Brian", "Lorax", "Biler", "Istid", "Shrek", "Toy Story", "Istid 2", 
+        "Istid 3", "Saving Private Ryan", "Barbie", "Hacksaw Ridge", "Flåklypa"]
 
         //Å legge til et element på slutten av en array
         moviearray.push("The Exorcist")
         //Å slette en film (med en bestemt index)
         moviearray.splice(3, 1)
-    
         //Skjekke etter et bestemt element i arrayen
         const movieexist = moviearray.includes("Titanic")
         console.log("Finnes Titanic? " + movieexist)
         //Sortere en array fra A-Å
         moviearray.sort()
+        //Sortere fra Å-A
+        moviearray.reverse()
+
+        //Vi lager en array med tall
+        const numbersarray = [4, 78, 6, 90, 123, 5, 74]
+        //Sortere array med tall, laveste tall først:
+        numbersarray.sort(function(a, b) {return a - b})
+        //Hvis vi ønsker å sortere med høyeste tall først, la funksjonen returnere b - a
 
         //Skriv ut film med index 3:
         const index = 3
@@ -41,6 +49,8 @@
 
         //Vis moviearray i konsoll:
         console.log(moviearray)
+        //Vis numbersarray i konsoll:
+        console.log(numbersarray)
     </script>
 </body>
 </html>
