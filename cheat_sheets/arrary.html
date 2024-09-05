@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array cheatsheets</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Arrayer</h2>
+    <p>Dette juskearket funker best med konsollen åpen</p>
+    <h3>Filmarray (<span id="moviecount">0</span> filmer)</h3>
+    <p>Film på index 3: <span id="movietitle">#</span></p>
+    <script>
+        //Opprettet en array med filmtitler
+        const moviearray = ["Interstellar", "Top Gun", "Titanic", "Dum og dummere", "Cool runnings", "Pokemon", 
+        "Ikke krøll med Zohan"]
+
+        //Å legge til et element på slutten av en array
+        moviearray.push("The Exorcist")
+        //Å slette en film (med en bestemt index)
+        moviearray.splice(3, 1)
+    
+        //Skjekke etter et bestemt element i arrayen
+        const movieexist = moviearray.includes("Titanic")
+        console.log("Finnes Titanic? " + movieexist)
+        //Sortere en array fra A-Å
+        moviearray.sort()
+
+        //Skriv ut film med index 3:
+        const index = 3
+        document.getElementById("movietitle").innerHTML = moviearray[index]
+        //Skriv ut antall filmer:
+        document.getElementById("moviecount").innerHTML = moviearray.length
+
+        //Vis moviearray i konsoll:
+        console.log(moviearray)
+    </script>
+</body>
+</html>
