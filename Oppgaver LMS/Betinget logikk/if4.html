@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF4 Oppgave</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+
+    <script>
+        const ITF19019_grade = "A";
+        const ITF10511_grade = "F";
+        // Laget 2 variabler som sier resultatet fra kurset
+
+        const ITF19019_passed = ITF19019_grade === "F" ? true : false;
+        const ITF10511_passed = ITF10511_grade === "F" ? true : false;
+        let countPassed = 0;
+        // Laget 2 variabler som sier om de er bestått eller ikke
+
+        if(ITF19019_passed === true){
+            countPassed += 1;
+        }
+
+        if(ITF10511_passed === true) {
+            countPassed += 1;
+        }
+        // Skriver ut at hvis det er "true" skal det bli +1.
+        
+        const utskrift = `Du har bestått ${countPassed} av 2 kurs`
+        document.getElementById("utskrift").innerHTML = utskrift
+    </script>
+
+</body>
+</html>

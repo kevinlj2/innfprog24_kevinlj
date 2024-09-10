@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IF1 Oppgave</title>
+  </head>
+  <body>
+    <p id="utskrift"></p>
+
+    <script>
+      const name = "Kevin";
+      let utskrift
+      //Lager en variabel som sier at navnet er Kevin og en som skal sende utskriftet til HTML
+
+      if (name === "Kevin") {
+        utskrift = "Mitt navn er " + name + " Johannesen"
+      } else {
+        utskrift = "Mitt navn er ikke " + name + " Johannesen"
+      }
+      //Sier til scriptet at hvis navet stemmer med "Kevin" da skal det si mitt navn er og hvis ikke skal det si mitt navn er ikke
+      document.getElementById("utskrift").innerHTML = utskrift
+    </script>
+  </body>
+</html>
