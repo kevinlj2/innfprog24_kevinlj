@@ -36,16 +36,30 @@
                 office: "D1-015",
                 email: "danielb@hiof.no",
                 birthyear: 1977,
-                coruses: ["Designmetoder", "UI Designprosjekt"]
+                courses: ["Designmetoder", "UI Designprosjekt"]
             }
         ]
     
+        /*  
+            Vi skal skrive ut hver foreleser i arrayen som et listepunkt: <li>
+            Vi må gå gjennom hele arrayen: .map
+            Når vi .mapper, må vi mellomlagre element i en variabel: lecturer
+            For hver lecturer, må vi legge til en <li> i <ul id="profiles"> 
+        */
+        lecturers.map(lecturer => document.getElementById("profiles").innerHTML += 
+        `<li>${lecturer.personname}
+             <ul>
+                ${lecturer.courses.map(course => `<li>${course}</li>`).join("")}
+            </ul> 
+        </li>`)
+        /*
+            Dersom vi bruker .map på en array med kun tekststrenger, må vi bruke metoden 
+            .join("") etter vi har kjørt .map-et for å fjerne .maps komma-generering
+        */
 
-    //document.getElementById("contactinfo").innerHTML = `${lecturer.personname} sitter på kontor ${lecturer.office}. 
-    // Epost: ${lecturer.email}. Favorittkurset hans er ${lecturer.courses[0]}`
 
-        console.log(document.getElementById("contactinfo"))
-        console.log(lecturers)
-    </script>
+    //document.getElementById("contactinfo").innerHTML = `${lecturer.personname} sitter på kontor ${lecturer.office}. Epost: ${lecturer.email}. Favorittkurset hans er ${lecturer.courses[0]}`
+    //console.log(lecturers)
+   </script>
 </body>
 </html>

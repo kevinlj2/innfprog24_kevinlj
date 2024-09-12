@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyr Oppgave</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    <p>Antall dyr: <span id="animalcount"></span></p>
+
+    <script>
+        const dyrarray = [
+            "piggsvin", "knøttspisemus", "dvergspissmus", "villsvin", "dåhjort", "hjort", "elg", "rådyr", "rein", "ulv"
+        ]
+        const animalsarray = [
+            "porcupine", "nuthatch", "pygmy shrew", "wild boar", "fallow deer", "deer", "moose", "deer", "raindeer", "wolf"
+        ]
+
+        dyrarray.push("løve", "ørn")
+        animalsarray.push("lion", "eagle")
+        dyrarray.sort()
+        animalsarray.sort()
+        document.getElementById("utskrift").innerHTML = dyrarray
+        document.getElementById("animalcount").innerHTML = animalsarray.length
+        //console.log(dyrarray)
+    </script>
+</body>
+</html>
