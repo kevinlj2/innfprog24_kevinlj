@@ -67,7 +67,6 @@
             color: white;
             cursor: pointer;
         }
-
     </style>
 
 </head>
@@ -192,7 +191,7 @@
                 var cellSpace = document.getElementById("celle"+celle).innerHTML;
                 
                 //Hvis den er ledig...
-                if(cellSpace === "");
+                if(cellSpace === "") {
                     //...sjekk hvilken spiller sin tur det er, og plasser riktig symbol på spillerbrettet
                     if (player === 1) {
                         //Plasser symbol på spillerbrettet i nettleseren
@@ -237,11 +236,12 @@
                 if(spillStatus === true) {
                     document.getElementById("player").innerHTML = player;
                     document.getElementById("playermark").innerHTML = playermark;
-                } else {
-                //Hvis spillstatus er false, avslutter vi funksjonen uten å utføre noen handlinger.
+                }
+            //Hvis spillstatus er false, avslutter vi funksjonen uten å utføre noen handlinger.
+            } else {
                 //Så returnerer vi spillet
                 return;
-                }
+            }
         }
 
         function sjekkVinner() {
@@ -276,6 +276,10 @@
             if(rundenVunnet === true) {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
+
+                //Bakgrunnen til "playerturn" blir endret til gull
+                document.getElementById("playerturn").style.backgroundColor = "#FFD700"; 
+
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
                 //Sett spillstatus til false, slik at ingen spillere får plassere
@@ -305,6 +309,9 @@
             playermark = "X";
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
+           
+            //Bakgrunnen til "playerturn" blir endret tilbake ved trykk på "start på nytt"
+            document.getElementById("playerturn").style.backgroundColor = "#ccc"; 
         }
     </script>
 </body>
