@@ -244,7 +244,6 @@
             }
         }
 
-        //setTimeout()
         function sjekkVinner() {
             var rundenVunnet = false;
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
@@ -272,9 +271,12 @@
                     break;
                 }
             }
-
+            
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) {
+             setTimeout(() => {
+           
+
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
 
@@ -297,9 +299,10 @@
                 document.getElementById("celle6").style.color = "#FFD700";
                 document.getElementById("celle7").style.color = "#FFD700";
                 document.getElementById("celle8").style.color = "#FFD700";
-
-            }
+            }, 1000);
         }
+    }
+    
 
         //Når et spill er avsluttet, og et nytt skal begynne, må vi gjøre klar en del ting:
         // 1) Fjerne brikkene som er plassert på brettet - både i grensesnittet og i programmet vårt
