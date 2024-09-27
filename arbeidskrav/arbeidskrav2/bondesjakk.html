@@ -244,6 +244,7 @@
             }
         }
 
+        //setTimeout()
         function sjekkVinner() {
             var rundenVunnet = false;
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
@@ -277,14 +278,26 @@
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
 
-                //Bakgrunnen til "playerturn" blir endret til gull
-                document.getElementById("playerturn").style.backgroundColor = "#FFD700"; 
-
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
                 //Sett spillstatus til false, slik at ingen spillere får plassere
                 //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
                 spillStatus = false;
+
+                //Bakgrunnen til "playerturn" blir endret til gull
+                document.getElementById("playerturn").style.backgroundColor = "#FFD700"; 
+
+                //Spillermerkene blir endret til gull når en spiller vinner
+                document.getElementById("celle0").style.color = "#FFD700";
+                document.getElementById("celle1").style.color = "#FFD700";
+                document.getElementById("celle2").style.color = "#FFD700";
+                document.getElementById("celle3").style.color = "#FFD700";
+                document.getElementById("celle4").style.color = "#FFD700";
+                document.getElementById("celle5").style.color = "#FFD700";
+                document.getElementById("celle6").style.color = "#FFD700";
+                document.getElementById("celle7").style.color = "#FFD700";
+                document.getElementById("celle8").style.color = "#FFD700";
+
             }
         }
 
@@ -312,6 +325,17 @@
            
             //Bakgrunnen til "playerturn" blir endret tilbake ved trykk på "start på nytt"
             document.getElementById("playerturn").style.backgroundColor = "#ccc"; 
+
+            //Spillermerkene blir endret tilbake til standard farge
+            document.getElementById("celle0").style.color = "#ccc";
+            document.getElementById("celle1").style.color = "#ccc";
+            document.getElementById("celle2").style.color = "#ccc";
+            document.getElementById("celle3").style.color = "#ccc";
+            document.getElementById("celle4").style.color = "#ccc";
+            document.getElementById("celle5").style.color = "#ccc";
+            document.getElementById("celle6").style.color = "#ccc";
+            document.getElementById("celle7").style.color = "#ccc";
+            document.getElementById("celle8").style.color = "#ccc";
         }
     </script>
 </body>
