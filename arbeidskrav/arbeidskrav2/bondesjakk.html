@@ -336,6 +336,9 @@
             playermark = "X";
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
+
+            //Fjerner restart spill-knappen.
+            document.getElementById("newgame").style.display = "none";
            
             //Bakgrunnen til "playerturn" blir endret tilbake ved trykk på "start på nytt"
             document.getElementById("playerturn").style.backgroundColor = "#ccc"; 
