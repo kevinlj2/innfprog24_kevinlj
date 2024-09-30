@@ -274,17 +274,19 @@
             
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) {
-             setTimeout(() => {
-           
 
+                //Sett spillstatus til false, slik at ingen spillere får plassere
+                //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
+                spillStatus = false;
+                
+                //Lagt inn setTimeout for å sette en venteperiode på 1 sekund før koden kjøres
+                setTimeout(function() {
+           
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
 
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
-                //Sett spillstatus til false, slik at ingen spillere får plassere
-                //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
-                spillStatus = false;
 
                 //Bakgrunnen til "playerturn" blir endret til gull
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700"; 
