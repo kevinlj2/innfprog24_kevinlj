@@ -281,6 +281,15 @@
                 
                 //Lagt inn setTimeout for å sette en venteperiode på 1 sekund før koden kjøres
                 setTimeout(function() {
+
+                //Lagt inn gjenbruk av kode slik at spillet displayer riktig vinner
+            if (player === 1) {
+                player = 2;
+                playermark = "O";
+            } else {
+                player = 1;
+                playermark = "X"; 
+            }
            
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
