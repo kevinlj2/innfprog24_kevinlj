@@ -283,13 +283,13 @@
                 setTimeout(function() {
 
                 //Lagt inn gjenbruk av kode slik at spillet displayer riktig vinner
-            if (player === 1) {
+                if (player === 1) {
                 player = 2;
                 playermark = "O";
-            } else {
+                } else {
                 player = 1;
                 playermark = "X"; 
-            }
+                }
            
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
@@ -337,13 +337,13 @@
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
 
-            //Fjerner restart spill-knappen.
+            //Fjerner restart spill-knappen etter den er trykket på.
             document.getElementById("newgame").style.display = "none";
            
             //Bakgrunnen til "playerturn" blir endret tilbake ved trykk på "start på nytt"
             document.getElementById("playerturn").style.backgroundColor = "#ccc"; 
 
-            //Spillermerkene blir endret tilbake til standard farge
+            //Endrer tilbake spillermerkene til standard farge ved trykk på "start på nytt"
             document.getElementById("celle0").style.color = "#ccc";
             document.getElementById("celle1").style.color = "#ccc";
             document.getElementById("celle2").style.color = "#ccc";
