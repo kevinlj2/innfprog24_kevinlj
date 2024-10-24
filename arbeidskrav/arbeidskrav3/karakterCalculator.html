@@ -4,19 +4,90 @@
     <meta charset="UTF=8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>karakterCalculator</title>
+    <style></style>
   </head>
   <body>
     <label>
-      Karakter en
-      <input type="number" />
+      Poeng oppnådd i oppgave 1
+      <input
+        id="karakter1"
+        type="number"
+        value="karakter1"
+        placeholder="poengsum oppnådd"
+      />
     </label>
     <label>
-      Karakter to
-      <input type="number" />
+      Poeng oppnådd i oppgave 2
+      <input
+        id="karakter2"
+        type="number"
+        value="karakter2"
+        placeholder="poengsum oppnådd"
+      />
     </label>
+    <button onclick="gradeCalculator()">Beregn karakter</button>
+    <p id="karakterUtskrift"></p>
 
-    <button onclick="#">Beregn karakter</button>
+    <script>
+      function gradeCalculator() {
+        //Lager array for grensesinittet til karakterene.
+        const grades = [
+          { grade: "F", treshold: 0 },
+          { grade: "E", treshold: 25 },
+          { grade: "D", treshold: 44 },
+          { grade: "C", treshold: 68 },
+          { grade: "B", treshold: 88 },
+          { grade: "A", treshold: 100 },
+        ];
 
-    <script></script>
+        //Lager const for verdien fra inputtet fra HTML
+        const grade1 = document.getElementById("karakter1").value;
+        const grade2 = document.getElementById("karakter2").value;
+
+        //Lager en const for utregningen til karakteren
+        const totalGrade =
+          0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
+
+        //Lager en if for karakterutskrift
+        if (
+          totalGrade > grades.treshold[2] &&
+          totalGrade < grades.treshold[1]
+        ) {
+          document.getElementById(
+            "karakterUtskrift"
+          ).innerHTML = `Du har oppnådd karakter ${grades.grade[0]}`;
+        }
+        if (totalGrade < 43 && totalGrade > 25) {
+          document.getElementById(
+            "karakterUtskrift"
+          ).innerHTML = `Du har oppnådd karakter ${grades.grade}E`;
+        }
+        if (totalGrade < 67 && totalGrade > 44) {
+          document.getElementById(
+            "karakterUtskrift"
+          ).innerHTML = `Du har oppnådd karakter ${grades.grade}D`;
+        }
+        if (totalGrade < 87 && totalGrade > 68) {
+          document.getElementById(
+            "karakterUtskrift"
+          ).innerHTML = `Du har oppnådd karakter ${grades.grade}C`;
+        }
+        if (totalGrade < 99 && totalGrade > 88) {
+          document.getElementById(
+            "karakterUtskrift"
+          ).innerHTML = `Du har oppnådd karakter ${grades.grade}B`;
+        }
+        if (totalGrade === 100) {
+          document.getElementById(
+            "karakterUtskrift"
+          ).innerHTML = `Du har oppnådd karakter ${grades.grade}A`;
+        }
+        //Skriver ut % til oppgaven i p-taggen
+        //document.getElementById("gradeOutput").innerHTML = `Din oppnådde karakter er: ${totalGrade}%`;
+        console.log("koden kjøres");
+        console.log(totalGrade);
+        console.log(grades);
+      }
+    </script>
   </body>
 </html>
