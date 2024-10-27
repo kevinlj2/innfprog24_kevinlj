@@ -50,8 +50,8 @@
 
         //Lager en if for karakterutskrift
         if (
-          totalGrade > grades.treshold[2] &&
-          totalGrade < grades.treshold[1]
+          totalGrade < grades.treshold(2) &&
+          totalGrade > grades.treshold(1)
         ) {
           document.getElementById(
             "karakterUtskrift"
