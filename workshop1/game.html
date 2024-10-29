@@ -27,7 +27,7 @@
         <img src="icons/c3_logo.svg" alt="Code Concept Collector" />
         <nav>
             <button id="notebookToggler"><img src="icons/notebook.svg" />Åpne kladdeboka <span class="shortcut">n</span></button>
-            <button id="infoToggler">Info / Hvordan spille <span class="shortcut">i</span></button>
+            <button id="infoToggler"/>Info / Hvordan spille <span class="shortcut">i</span></button>
         </nav>
     </header>
     <main>
@@ -98,32 +98,85 @@
     } else {
         document.getElementById("playerName").innerHTML = gameConfig.player
     }
-    document.getElementById("energy").innerHTML = gameConfig.energy
-    document.getElementById("points").innerHTML = gameConfig.points
-    document.getElementById("duration").innerHTML = gameConfig.duration
+    document.getElementById("energy").innerHTML     = gameConfig.energy
+    document.getElementById("points").innerHTML     = gameConfig.points
+    document.getElementById("duration").innerHTML   = gameConfig.duration
 
         //TODO: print notebook info to HTML
     
-    document.getElementById("variabler").innerHTML = notebook.variables
-    document.getElementById("arrayer").innerHTML = notebook.arrays
-    document.getElementById("loops").innerHTML = notebook.loops
+    document.getElementById("variabler").innerHTML  = notebook.variables
+    document.getElementById("arrayer").innerHTML    = notebook.arrays
+    document.getElementById("loops").innerHTML      = notebook.loops
     document.getElementById("functions").innerHTML  = notebook.functions
 
         //(BONUS) TODO: function for all prints
 
-    /*
+ 
     function updateStaticUI() {
-    document.getElementById("energy").innerHTML     = gameConfig.energy,
-    document.getElementById("points").innerHTML     = gameConfig.points,
-    document.getElementById("duration").innerHTML   = gameConfig.duration,
-    document.getElementById("variabler").innerHTML  = notebook.variables,
-    document.getElementById("arrayer").innerHTML    = notebook.arrays,
-    document.getElementById("loops").innerHTML      = notebook.loops,
-    document.getElementById("functions").innerHTML  = notebook.functions,
+        document.getElementById("energy").innerHTML     = gameConfig.energy
+        document.getElementById("points").innerHTML     = gameConfig.points
+        document.getElementById("duration").innerHTML   = gameConfig.duration
+
+        
+        document.getElementById("variabler").innerHTML  = notebook.variables
+        document.getElementById("arrayer").innerHTML    = notebook.arrays
+        document.getElementById("loops").innerHTML      = notebook.loops
+        document.getElementById("functions").innerHTML  = notebook.functions
     }
-    
     updateStaticUI ()
-    */
+
+    //WS2, Oppg 1:
+    function toggleVisibility(elementid) {
+        console.log(elementid)
+        const elem = document.getElementById(elementid)
+        if(elem.classList.contains("hidden")) {
+            elem.style.display = "block"
+            elem.classList.remove("hidden")
+        } else {
+            elem.style.display = "none"
+            elem.classList.add("hidden")
+        }
+    }
+
+    //WS2, Oppg 2:
+    document.getElementById("keydown", function(event) {
+        if(event.key === "n") {
+            toggleVisibility("notebook")
+        }
+        if(event.key === "i") {
+            toggleVisibility("info")
+        }
+    })
+    
+    //WS2, Oppg 3:
+    document.getElementById("notebookToggler").addEventListener("click", function() {
+        toggleVisibility("notebook")
+    })
+    document.getElementById("infoToggler").addEventListener("click", function() {
+        toggleVisibility("info")
+    })
+
+    //WS2, Oppg 4
+    function updateSingleStaticUI(elementid, value) {
+        document.getElementById(elementid).innerHTML = value
+    }
+    //updateSingleStaticUI("duration, 31")
+
+    //WS2, Oppg 5:
+    function updateConfigValue(configType, value) {
+        configType === "energy" ? gameConfig.energy += value : null
+        configType === "points" ? gameConfig.points += value : null
+        configType === "duration" ? gameConfig.duration += value : null
+        configType === "variables" ? notebook.variables += value : null
+        configType === "arrays" ? notebook.arrays += value : null
+        configType === "functions" ? notebook.functions += value : null
+        configType === "loops" ? notebook.loops += value : null
+
+        updateStaticUI()
+    }
+    updateConfigValue("energy", -5)
+    updateConfigValue("duration", 1000)
+    updateConfigValue("loops", 1000)
     </script>
 </body>
 </html>
