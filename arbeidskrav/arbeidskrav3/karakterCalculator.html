@@ -42,12 +42,7 @@
 
         //Lager const for verdien i inputtet fra HTML
         const grade1 = document.getElementById("karakter1").value;
-        const grade2 = document.getElementById("karakter2").value;
-
-        const onButton = document.getElementById("startKnapp")
-        if (grade1 == "") {
-         onButton.classList.add("disabled")
-        }
+        const grade2 = document.getElementById("karakter2").value;        
 
         //Lager en const for utregningen til karakteren
         const totalGrade = 0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
