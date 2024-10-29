@@ -4,6 +4,11 @@
     <meta charset="UTF=8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>gradeCalculator</title>
+    <style>
+    body {
+      display: flex
+      }
+    </style>
   </head>
   <body>
     <h1>Karakter Kalkulator</h1>
@@ -25,56 +30,47 @@
         placeholder="Max Poengsum 12"
       />
     </label>
-    <button id="startKnapp" onclick="gradeCalculator()">Beregn karakter</button>
-    <p id="karakterUtskrift"></p>
+    <button id="gradeKnapp" onclick="gradeCalculator()">Beregn karakter</button>
+    <p id="gradePrint"></p>
 
     <script>
-      function gradeCalculator() {
-        //Lager array for grensesinittet til karakterene.
-        const grades = [
-          { grade: "F", treshold: 0 },
-          { grade: "E", treshold: 25 },
-          { grade: "D", treshold: 44 },
-          { grade: "C", treshold: 68 },
-          { grade: "B", treshold: 88 },
-          { grade: "A", treshold: 100 },
-        ];
+      karakter2.addEventListener("input", () => {
+        if(karakter1.value.length > 0 && karakter2.value.length > 0){
+          gradeKnapp.disabled = false;
+        } else {
+          gradeKnapp.disabled = true;
+        }
+      });
 
-        //Lager const for verdien i inputtet fra HTML
+      function gradeCalculator() {     
         const grade1 = document.getElementById("karakter1").value;
-        const grade2 = document.getElementById("karakter2").value;        
+        const grade2 = document.getElementById("karakter2").value; 
 
         //Lager en const for utregningen til karakteren
-        const totalGrade = 0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
+        let totalGrade = 0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
 
         //Lager en if for karakterutskrift
-        if (totalGrade <= 25) {
-          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter F`;
-        }
-        if (totalGrade <= 44 && totalGrade >= 25) {
-          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter E`;
-        }
-        if (totalGrade <= 68 && totalGrade >= 44) {
-          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter D`;
-        }
-        if (totalGrade <= 88 && totalGrade >= 68) {
-          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter C`;
-        }
-        if (totalGrade <= 100 && totalGrade >= 88) {
-          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter B`;
-        }
         if (totalGrade === 100) {
-          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter A`;
+          grades = "A";
+        } else if (totalGrade <= 100 && totalGrade >= 88) {
+          grades = "B";
+        } else if (totalGrade <= 88 && totalGrade >= 68) {
+          grades = "C";
+        } else if (totalGrade <= 68 && totalGrade >= 44) {
+          grades = "D";
+        } else if (totalGrade <= 44 && totalGrade >= 25) {
+          grades = "E";
+        } else if (totalGrade <= 25) {
+          grades = "F";
         }
-        
-        if (totalGrade > 100) {
-          alert("")
-          return
-        }
+
+        document.getElementById("gradePrint").innerHTML = 
+        `Gratulerer! Du har klart å oppnå ${grades}!`
 
         console.log("koden kjøres");
         console.log(totalGrade);
       }
+
     </script>
   </body>
 </html>
