@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF=8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>karakterCalculator</title>
-    <style></style>
+    <title>gradeCalculator</title>
   </head>
   <body>
+    <h1>Karakter Kalkulator</h1>
     <label>
       Poeng oppnådd i oppgave 1
       <input
         id="karakter1"
         type="number"
         value="karakter1"
-        placeholder="poengsum oppnådd"
+        placeholder="Max Poengsum 10"
       />
     </label>
     <label>
@@ -22,10 +22,10 @@
         id="karakter2"
         type="number"
         value="karakter2"
-        placeholder="poengsum oppnådd"
+        placeholder="Max Poengsum 12"
       />
     </label>
-    <button onclick="gradeCalculator()">Beregn karakter</button>
+    <button id="startKnapp" onclick="gradeCalculator()">Beregn karakter</button>
     <p id="karakterUtskrift"></p>
 
     <script>
@@ -40,53 +40,45 @@
           { grade: "A", treshold: 100 },
         ];
 
-        //Lager const for verdien fra inputtet fra HTML
+        //Lager const for verdien i inputtet fra HTML
         const grade1 = document.getElementById("karakter1").value;
         const grade2 = document.getElementById("karakter2").value;
 
+        const onButton = document.getElementById("startKnapp")
+        if (grade1 == "") {
+         onButton.classList.add("disabled")
+        }
+
         //Lager en const for utregningen til karakteren
-        const totalGrade =
-          0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
+        const totalGrade = 0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
 
         //Lager en if for karakterutskrift
-        if (
-          totalGrade < grades.treshold(2) &&
-          totalGrade > grades.treshold(1)
-        ) {
-          document.getElementById(
-            "karakterUtskrift"
-          ).innerHTML = `Du har oppnådd karakter ${grades.grade[0]}`;
+        if (totalGrade <= 25) {
+          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter F`;
         }
-        if (totalGrade < 43 && totalGrade > 25) {
-          document.getElementById(
-            "karakterUtskrift"
-          ).innerHTML = `Du har oppnådd karakter ${grades.grade}E`;
+        if (totalGrade <= 44 && totalGrade >= 25) {
+          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter E`;
         }
-        if (totalGrade < 67 && totalGrade > 44) {
-          document.getElementById(
-            "karakterUtskrift"
-          ).innerHTML = `Du har oppnådd karakter ${grades.grade}D`;
+        if (totalGrade <= 68 && totalGrade >= 44) {
+          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter D`;
         }
-        if (totalGrade < 87 && totalGrade > 68) {
-          document.getElementById(
-            "karakterUtskrift"
-          ).innerHTML = `Du har oppnådd karakter ${grades.grade}C`;
+        if (totalGrade <= 88 && totalGrade >= 68) {
+          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter C`;
         }
-        if (totalGrade < 99 && totalGrade > 88) {
-          document.getElementById(
-            "karakterUtskrift"
-          ).innerHTML = `Du har oppnådd karakter ${grades.grade}B`;
+        if (totalGrade <= 100 && totalGrade >= 88) {
+          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter B`;
         }
         if (totalGrade === 100) {
-          document.getElementById(
-            "karakterUtskrift"
-          ).innerHTML = `Du har oppnådd karakter ${grades.grade}A`;
+          document.getElementById("karakterUtskrift").innerHTML = `Du har oppnådd karakter A`;
         }
-        //Skriver ut % til oppgaven i p-taggen
-        //document.getElementById("gradeOutput").innerHTML = `Din oppnådde karakter er: ${totalGrade}%`;
+        
+        if (totalGrade > 100) {
+          alert("")
+          return
+        }
+
         console.log("koden kjøres");
         console.log(totalGrade);
-        console.log(grades);
       }
     </script>
   </body>
