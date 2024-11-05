@@ -11,7 +11,7 @@
 
     body {
       display: flex;
-      background-color: white;
+      background-color: #55585a;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 16px;
       padding: 1rem;
@@ -36,11 +36,13 @@
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 1rem;
+        justify-content: center;
       }
     }
     h1 {
       width: 100%;
-      padding: 1rem;
+      display: flex;
+      justify-content: center;
     }
     p {
       color: black;
@@ -50,11 +52,10 @@
     #gradeKnapp {
       width: 100%;
       padding: 0.5rem;
-
     }
     #gradePrint {
       font-size: 24px;
-      color: rgb(40, 72, 212);
+      color: rgb(45, 61, 131);
       font-weight: bold;
     }
     </style>
@@ -70,6 +71,7 @@
         value="karakter1"
         placeholder="Max Poengsum 10"
         max="10"
+        onkeyup="knappDisabled()"
       />
     </label>
     <label>
@@ -80,6 +82,8 @@
         value="karakter2"
         placeholder="Max Poengsum 12"
         max="12"
+        onkeyup="knappDisabled()"
+        
       />
     </label>
     <button id="gradeKnapp" onclick="gradeCalculator()" disabled>Beregn karakter</button>
@@ -88,24 +92,17 @@
     <script>
 
       //Disabler knappen hvis område ikke er fylt inn
-      karakter2.addEventListener("input", () => {
-        if(karakter1.value.length > 0 && karakter2.value.length > 0){
-          gradeKnapp.disabled = false;
-        } else {
+      function knappDisabled() {
+        if(karakter1.value === "" || karakter2.value === ""){
           gradeKnapp.disabled = true;
-        }
-      });
-      karakter1.addEventListener("input", () => {
-        if(karakter1.value.length > 0 && karakter2.value.length > 0){
-          gradeKnapp.disabled = false;
         } else {
-          gradeKnapp.disabled = true;
+          gradeKnapp.disabled = false;
         }
-      });
+      }
 
       function gradeCalculator() {     
-        const grade1 = document.getElementById("karakter1").value;
-        const grade2 = document.getElementById("karakter2").value; 
+        let grade1 = document.getElementById("karakter1").value;
+        let grade2 = document.getElementById("karakter2").value; 
 
         //Lager en const for utregningen til karakteren
         let totalGrade = 0.3 * ((grade1 / 10) * 100) + 0.7 * ((grade2 / 12) * 100);
@@ -124,7 +121,7 @@
         } else if (totalGrade <= 25) {
           grades = "F";
         } else if (totalGrade >= 100) {
-          alert("MAX POENGSUM")
+          alert("FOR MANGE POENG")
         }
 
         //Skriver ut resultatet til HTML
