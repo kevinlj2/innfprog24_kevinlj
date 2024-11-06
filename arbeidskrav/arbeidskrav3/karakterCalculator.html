@@ -5,57 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>gradeCalculator</title>
     <style>
-    * {
-      box-sizing: border-box;
-      }
-
     body {
       display: flex;
-      background-color: #55585a;
+      background-color: white;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 16px;
       padding: 1rem;
       justify-content: center;
-
     }
     main {
       border-style: solid;
-      border-width: 0.1px;
-      border-color: black;
+      border-width: 1px;
       background-color: #ccc;
-      align-items: center;
       border-radius: 5px;
-      max-width: 100%;
 
       label {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
         padding: 1rem;
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
         gap: 1rem;
         justify-content: center;
       }
-    }
-    h1 {
-      width: 100%;
+
+      h1 {
       display: flex;
       justify-content: center;
-    }
-    p {
+      }
+      p {
       color: black;
       padding: 0.5rem;
       width: 450px;
+      }
     }
     #gradeKnapp {
       width: 100%;
       padding: 0.5rem;
     }
+    
     #gradePrint {
       font-size: 24px;
-      color: rgb(45, 61, 131);
       font-weight: bold;
     }
     </style>
@@ -126,9 +113,8 @@
 
         //Skriver ut resultatet til HTML
         document.getElementById("gradePrint").innerHTML = 
-        `Gratulerer! Du har klart å oppnå ${grades}!`
+        `Du har oppnådd karakter ${grades}!`
       }
-
     </script>
   </body>
 </html>
